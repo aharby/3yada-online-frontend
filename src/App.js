@@ -19,13 +19,12 @@ function App() {
     
   return (
       <div className="App">
-         {/* <Navbar /> */}
+         <Navbar />
           <Routes >
-            <Route path='/' element={<p>hello world</p>} />
-              {/* <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} /> */}
-              <Route  path='*' element={<NoMatch />} />
+              <Route path="/register" element={<Register />} />
+              <Route path='*' element={<NoMatch />} />
           </Routes>
       </div>
   );
