@@ -1,7 +1,7 @@
 import axios from "axios";
 
 axios.defaults.proxy = true
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://e3yada-online.herokuapp.com'
 
 export default {
     // API request to server side 
