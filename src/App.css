@@ -1,0 +1,221 @@
+body{
+  background-color: #E8EFFF;
+  font-family: 'Inter', sans-serif;
+  color: #50A060;
+}
+
+p, h1, h2 {
+  margin-bottom: 0;
+}
+
+.navbar {
+  background: #50a060;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 14px 90px;
+}
+
+.navbar-logo {
+  margin-right: auto;
+  color:#E8EFFF;
+  display: flex;
+  font-weight: bold;
+}
+
+.navbar-logo-img {
+  width: 30px;
+}
+.navbar-links {
+  margin: 0 53px;
+  font-size: 13px;
+  color: #E8EFFF;
+}
+
+.custom_a, .custom_a:hover, .custom_a:visited {
+  color:#E8EFFF;
+}
+
+.custom_a:hover {
+  text-decoration: underline;
+}
+
+span{
+  padding: 5px
+}
+
+.navbar-links-signup {
+  font-size: 12px;
+  border:#E8EFFF;
+  border-style: solid;
+  border-radius: 2px;
+  border-width: 1px;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.navbar-links-signup:hover {
+  text-decoration: none;
+  background-color: #E8EFFF;
+  color: #50a060;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  justify-content: flex-start;
+}
+
+.Home-header {
+  /* width: 100%; */
+  height: 685px;
+  padding: 32px 90px;
+  background-size: cover;
+  /* overflow: hidden; */
+  background: url('./assets/homecovernewen1-eg-en.jpg');  /* Chrome 10-25, Safari 5.1-6 */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.header-content-h1 {
+  color: #6E7597;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.header-content-h2 {
+  color: #6E7597;
+  font-size: 24px;
+  font-weight:normal;
+}
+
+
+
+/* Tab Container */
+.Tabs {
+  width: 90%;
+  /* height: 115px; */
+  background:  #f4f6fa;
+  margin-top: 180px;
+  padding: 32px 16px;
+  color: #595e7a;
+  border-radius: 2rem;
+  border: 1px solid #595e7a;
+  @media (max-width: 769px) {
+   padding: 2rem 0;
+  }
+ }
+ /* Tab Navigation */
+ul.nav {
+  width: 60%;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #595e7a;
+  border-radius: 2rem;
+  padding-left: 0px;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+}
+ul.nav li {
+  width: 50%;
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+ul.nav li:nth-child(2) {
+  border-radius: 0;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+ul.nav li:hover {
+  background: rgba(50, 224, 196, 0.15);
+}
+ul.nav li.active {
+  background: #E8EFFF;
+}
+.FirstTab p,
+.SecondTab p {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.gray {
+  color: #918E9B;
+}
+
+.Home-h2 {
+  color: #6E7597;
+  font-size: 26px;
+  font-weight:bold;
+  padding: 0 90px;
+
+}
+
+.Home-cards {
+  display: flex;
+  padding: 0 90px;
+
+}
+
+.card {
+  width: 175px;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.card--h3 {
+  color: #6BA7FF;
+}
+.card--image {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.card--stats {
+  display: flex;
+  align-items: center;
+}
+
+.card--star {
+  height: 14px;
+}
+
+/* authentication */
+/* NavBar Styling */
+.ui.menu:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Jumbotron/Message styling */
+.ui.message.message-container {
+  text-align: center;
+  padding: 50px;
+  box-shadow: 0;
+  margin: 0;
+}
+/* UserForm styling */
+.form-container{
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+/* UserForm alert message */
+.ui.alertMssg {
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-align: center;
+}
