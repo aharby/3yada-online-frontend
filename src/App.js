@@ -11,19 +11,19 @@ import NoMatch from "./pages/NoMatch";
 import Navbar from './components/Navbar'
 
 function App() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(loadUser());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(loadUser());
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
     
   return (
       <div className="App">
-         <Navbar />
+         {/* <Navbar /> */}
           <Routes >
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              {/* <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} /> */}
               <Route  path='*' element={<NoMatch />} />
           </Routes>
       </div>
