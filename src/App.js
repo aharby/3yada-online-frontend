@@ -2,7 +2,7 @@ import './App.css';
 
 import React, { useEffect } from 'react'
 import { Routes, Route} from 'react-router-dom'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./actions/authActions";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -11,10 +11,13 @@ import NoMatch from "./pages/NoMatch";
 import Navbar from './components/Navbar'
 
 function App() {
+    const { isAuthenticated } = useSelector(state => state.auth)
+
     const dispatch = useDispatch();
+
     useEffect(() => {
-        dispatch(loadUser());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        if(isAuthenticated)
+            dispatch(loadUser());
     }, []);
     
   return (
