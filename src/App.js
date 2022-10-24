@@ -11,11 +11,11 @@ import NoMatch from "./pages/NoMatch";
 import Navbar from './components/Navbar'
 
 function App() {
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(loadUser());
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(loadUser());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
   return (
       <div className="App">
