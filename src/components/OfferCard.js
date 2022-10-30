@@ -1,8 +1,10 @@
 import React from "react"
 import star from '../assets/star.png'
 import { urlFor } from "../client"
+import { withAnimation } from "./withAnimation"
 
-export default function OfferCard(props) {
+const OfferCard = (props) => {
+
   return (
       <div className="card">
           <h3 className="card--h3">{props.item.name}</h3>
@@ -11,10 +13,12 @@ export default function OfferCard(props) {
               <img src={star} alt="star" className='card--star' />
               <span>{props.item.rating}</span>
               <span className='gray'>({props.item.reviewCount})</span>
-              <span className='gray'>{props.item.location}</span>
+              <span className='gray'>{props.item.location.formatted_address}</span>
           </div>
           <p>{props.title}</p>
           <p><span className='bold'>From ${props.item.price}</span></p>
       </div>
   )
 }
+
+export default withAnimation(OfferCard)

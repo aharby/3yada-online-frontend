@@ -73,19 +73,22 @@ span{
   padding: 32px 90px;
   background-size: cover;
   /* overflow: hidden; */
-  background: url('./assets/homecovernewen1-eg-en.jpg');  /* Chrome 10-25, Safari 5.1-6 */
-  background-size: contain;
+  background: url('./assets/homeCover.jpeg');  /* Chrome 10-25, Safari 5.1-6 */
+  background-size:cover;
   background-repeat: no-repeat;
 }
 
 .header-content-h1 {
-  color: #6E7597;
-  font-size: 32px;
+  color: #E8EFFF ;
+  font-size: 48px;
   font-weight: 600;
+  background-color: #50a060;
+  /* padding-top: 100px; */
+  /* -webkit-text-stroke: 0.05px #E8EFFF; */
 }
 
 .header-content-h2 {
-  color: #6E7597;
+  color: #E8EFFF;
   font-size: 24px;
   font-weight:normal;
 }
@@ -97,7 +100,7 @@ span{
   width: 90%;
   /* height: 115px; */
   background:  #f4f6fa;
-  margin-top: 180px;
+  margin-top: 200px;
   padding: 32px 16px;
   color: #595e7a;
   border-radius: 2rem;
