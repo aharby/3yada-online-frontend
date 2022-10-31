@@ -1,7 +1,7 @@
 body{
   background-color: #E8EFFF;
   font-family: 'Inter', sans-serif;
-  color: #50A060;
+  color: #595e7a;
 }
 
 p, h1, h2 {
@@ -82,9 +82,12 @@ span{
   color: #E8EFFF ;
   font-size: 48px;
   font-weight: 600;
+}
+
+.header-content-h1 span {
   background-color: #50a060;
-  /* padding-top: 100px; */
-  /* -webkit-text-stroke: 0.05px #E8EFFF; */
+  border-radius: 5px;
+  opacity: 73%;
 }
 
 .header-content-h2 {
@@ -159,11 +162,10 @@ ul.nav li.active {
 }
 
 .Home-h2 {
-  color: #6E7597;
+  color: #6BA7FF;
   font-size: 26px;
   font-weight:bold;
   padding: 0 90px;
-
 }
 
 .Home-cards {
@@ -174,15 +176,17 @@ ul.nav li.active {
 
 .card {
   width: 175px;
+
   font-size: 12px;
   padding: 10px;
 }
 
 .card--h3 {
-  color: #6BA7FF;
+  /* color: #6BA7FF; */
+  font-size: 12px;
 }
 .card--image {
-  width: 100%;
+  object-fit: cover;
   border-radius: 4px;
 }
 

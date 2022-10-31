@@ -4,17 +4,19 @@ import { urlFor } from "../client"
 import { withAnimation } from "./withAnimation"
 
 const OfferCard = (props) => {
+    const adr =props.item.location.formatted_address.split(",")
 
-  return (
+    return (
       <div className="card">
           <h3 className="card--h3">{props.item.name}</h3>
-          <img src={urlFor(props.item.coverImg).url()} alt='cover' className="card--image" />
+          <img height="130px"
+            width="130px" src={urlFor(props.item.coverImg).url()} alt='cover' className="card--image" />
           <div className="card--stats">
               <img src={star} alt="star" className='card--star' />
               <span>{props.item.rating}</span>
               <span className='gray'>({props.item.reviewCount})</span>
-              <span className='gray'>{props.item.location.formatted_address}</span>
           </div>
+          <span className='gray'>{adr[adr.length-3]}</span>
           <p>{props.title}</p>
           <p><span className='bold'>From ${props.item.price}</span></p>
       </div>
