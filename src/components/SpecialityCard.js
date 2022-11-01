@@ -10,8 +10,7 @@ console.log(props)
     
       <div className="card" >
           <h3 className="card--h3">{props.item.name}</h3>
-         {props.item.img && <img height="130px"
-            width="130px" src={urlFor(props.item.img).url()} alt='cover' className="card--image" />}
+         {props.item.img && <img height="160px" src={urlFor(props.item.img).url()} alt='cover' className="card--image" />}
       </div>
   )
 }

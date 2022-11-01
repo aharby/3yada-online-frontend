@@ -1,5 +1,4 @@
 import React from "react"
-import star from '../assets/star.png'
 import { urlFor } from "../client"
 import { withAnimation } from "./withAnimation"
 
@@ -9,10 +8,9 @@ const OfferCard = (props) => {
     return (
       <div className="card">
           <h3 className="card--h3">{props.item.name}</h3>
-          <img height="130px"
-            width="130px" src={urlFor(props.item.coverImg).url()} alt='cover' className="card--image" />
+          <img height="160px" src={urlFor(props.item.coverImg).url()} alt='cover' className="card--image" />
           <div className="card--stats">
-              <img src={star} alt="star" className='card--star' />
+          <span className="fa fa-star card--star"></span>
               <span>{props.item.rating}</span>
               <span className='gray'>({props.item.reviewCount})</span>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Header from '../../components/Header'
 import OfferCard from '../../components/OfferCard';
 import SpecialityCard from '../../components/SpecialityCard.js';
@@ -8,6 +8,12 @@ import { client } from '../../client';
 const Home = () => {
     const [offers, setOffers] = useState([])
     const [specialities, setSpecialities] = useState([])
+    const specialitiesRef = useRef(null);
+    const cardsRef = useRef(null);
+
+    const scroll = (ref, scrollOffset) => {
+        ref.current.scrollLeft += scrollOffset;
+      };
 
   useEffect(() => {
     const offersQuery = '*[_type == "doctor"]';
@@ -25,7 +31,7 @@ const Home = () => {
     })
   }, []);
 
-  const SpecialityCards = specialities.map(item => {
+  const specialityCards = specialities.map(item => {
     return (
         <SpecialityCard animation="zoom-out-right" 
             key={item._id}
@@ -47,12 +53,20 @@ const Home = () => {
         <div className='Home'>
             <Header />
             <h2 className='Home-h2'>Our Specialities</h2>
-            <div className='Home-cards'>
-                {SpecialityCards}
+            <div className='Home--container' >
+                <div className='scrollbtn' onClick={() => scroll(specialitiesRef, -800)}><i class="fa fa-light fa-backward"></i></div>
+                    <div className='Home-cards' ref={specialitiesRef}>
+                        {specialityCards}
+                    </div>
+                <div className='scrollbtn' onClick={() => scroll(specialitiesRef,800)}><i className="fa fa-light fa-forward"></i></div>
             </div>
             <h2 className='Home-h2'>Our Doctors</h2>
-            <div className='Home-cards'>
-                {offerCards}
+            <div className='Home--container' >
+                <div className='scrollbtn' onClick={() => scroll(cardsRef,-800)}><i className="fa fa-thin fa-backward"></i></div>
+                    <div className='Home-cards' ref={cardsRef}>
+                        {offerCards}
+                    </div>
+                <div className='scrollbtn' onClick={() => scroll(cardsRef,800)}><i className="fa fa-light fa-forward"></i></div>
             </div>
         </div>
     )
