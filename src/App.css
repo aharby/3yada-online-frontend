@@ -60,19 +60,23 @@ span{
 }
 
 .Home {
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: flex-start; */
-  /* justify-content: flex-start; */
+
 }
 
 .Home-header {
   height: 685px;
   padding: 2em 6em;
   background-size: cover;
-  background: url('./assets/homeCover.jpeg');  /* Chrome 10-25, Safari 5.1-6 */
+  background: url('./assets/homeCover.jpeg'); 
   background-size:cover;
   background-repeat: no-repeat;
+}
+
+@media (max-width:600px) {
+  .Home-header {
+    height: 400px;
+    padding: 2em 2em;
+  }
 }
 
 .header-content-h1 {
@@ -81,10 +85,15 @@ span{
   font-weight: 600;
   padding-top: 1em;
 }
-
+@media (max-width:600px) {
+  .header-content-h1{
+    font-size: 2.3rem;
+  }
+}
 .header-content-h1 span {
   background-color: rgba(80, 160, 96, 0.75);
   border-radius: 5px;
+  padding: 0;
 }
 
 .header-content-h2 {
@@ -103,6 +112,12 @@ span{
   color: #595e7a;
   border-radius: 2rem;
   border: 1px solid #595e7a;
+ }
+
+ @media (max-width:600px) {
+  .Tabs {
+    margin-top: 20px;
+  }
  }
  /* Tab Navigation */
 ul.nav {
@@ -153,33 +168,48 @@ ul.nav li.active {
 
 .Home-h2 {
   color: #6BA7FF;
-  font-size: 26px;
+  font-size: 1.85rem;
   font-weight:bold;
-  padding: 0 90px;
+  padding: 0 6rem;
 }
 
 .Home--container {
   display: flex;
-  padding: 0 90px;
+  padding: 0 6em;
   align-items: center;
-  position: relative;
 }
 
+@media (max-width:600px) {
+  .Home-h2 {
+    font-size: 1.5rem;
+    padding: 0 2rem;
+  }
+  .Home--container {
+    padding: 0 2em; 
+  }
+  
+}
 .scrollbtn {
   background-color: rgba(107, 167, 255, 0.2);
   padding: 1em;
-
 }
 
 .Home-cards {
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
   scroll-behavior: smooth
 }
 
 @media (max-width:600px) {
+  .scrollbtn {
+    display: none;
+  }
   .Home-cards {
-    flex-direction: column;
+    overflow-x: scroll;
+    /* -webkit-overflow-scrolling: touch; */
+  }
+  .Home-cards::-webkit-scrollbar {
+    display: none;
   }
 }
 
