@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body{
   background-color: #E8EFFF;
   font-family: 'Inter', sans-serif;
@@ -7,6 +13,8 @@ body{
 p, h1, h2 {
   margin-bottom: 0;
 }
+
+
 
 .navbar {
   background: #50a060;
@@ -31,7 +39,78 @@ p, h1, h2 {
   color: #E8EFFF;
 }
 
-.custom_a, .custom_a:hover, .custom_a:visited {
+.mobile-navbar {
+  display: none;
+}
+
+
+@media (max-width:600px) {
+  .fa  {
+    color:#E8EFFF
+  }
+  
+  .navbar {
+    padding: 0.7em 2em;
+  }
+  .navLinks {
+    display: none;
+  }
+
+  .mobile-navbar{
+    display: block;
+  }
+
+
+
+  .sidebar {
+    background-color: #50a060;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 1;
+    padding: 1em 2em;
+  }
+  .navbar-links{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1em 1.3em;
+
+  }
+  .navbar-links a {
+    padding: 1.1em 1em;
+    border-bottom: 1px solid;
+
+  }
+  .navbar-links span {
+    display: none;
+  }
+}
+
+@media (min-width:600px) {
+  .navbar-links-signup {
+    font-size: 0.95rem;
+    border:#E8EFFF;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1px;
+    padding: 0.25em;
+    margin: 0 0.75em;
+  }
+  .navbar-links-signup:hover {
+    text-decoration: none;
+    background-color: #E8EFFF;
+    color: #50a060;
+  }
+}
+
+
+a, a:hover, a:visited {
   color:#E8EFFF;
 }
 
@@ -43,21 +122,7 @@ span{
   padding: 0.25em
 }
 
-.navbar-links-signup {
-  font-size: 0.95rem;
-  border:#E8EFFF;
-  border-style: solid;
-  border-radius: 2px;
-  border-width: 1px;
-  padding: 0.25em;
-  margin: 0 0.75em;
-}
 
-.navbar-links-signup:hover {
-  text-decoration: none;
-  background-color: #E8EFFF;
-  color: #50a060;
-}
 
 .Home {
 
@@ -87,7 +152,8 @@ span{
 }
 @media (max-width:600px) {
   .header-content-h1{
-    font-size: 2.3rem;
+    font-size: 2rem;
+    padding-top: 0;
   }
 }
 .header-content-h1 span {
@@ -116,7 +182,7 @@ span{
 
  @media (max-width:600px) {
   .Tabs {
-    margin-top: 20px;
+    margin-top: 60px;
   }
  }
  /* Tab Navigation */
@@ -206,7 +272,6 @@ ul.nav li.active {
   }
   .Home-cards {
     overflow-x: scroll;
-    /* -webkit-overflow-scrolling: touch; */
   }
   .Home-cards::-webkit-scrollbar {
     display: none;
