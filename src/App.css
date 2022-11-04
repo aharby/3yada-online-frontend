@@ -56,11 +56,21 @@ p, h1, h2 {
     display: none;
   }
 
+  @keyframes rollout {
+    0% { transform: translateX(-120px); }
+    100% { transform: none; }
+  }
+  
   .mobile-navbar{
     display: block;
+    animation: rollout 0.4s;
   }
 
 
+  @keyframes rolloutSidebar {
+    0% { transform: translateX(100px); }
+    100% { transform: none; }
+  }
 
   .sidebar {
     background-color: #50a060;
@@ -74,6 +84,9 @@ p, h1, h2 {
     height: 100%;
     z-index: 1;
     padding: 1em 2em;
+    box-shadow: -10px 0 500px 90px #000;
+    animation: rolloutSidebar 0.4s;
+
   }
   .navbar-links{
     display: flex;
