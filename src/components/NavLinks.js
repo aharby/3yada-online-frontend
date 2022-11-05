@@ -5,8 +5,8 @@ import Logout from './Logout'
 const NavLinks = (props) => {
     const { currentUser, isAuthenticated } = useSelector(state => state.auth)
 
-  return (
-      <p className="navbar-links">
+    return (
+      <p className="navbar-links" onClick={props.handleClick}>
           {!isAuthenticated?
             <>
               <Link to='/register' className='navbar-links-signup'>Sign Up</Link>
@@ -18,7 +18,7 @@ const NavLinks = (props) => {
               <Logout /><span> | </span>
             </>}
           <Link to='VFDs' >For Doctors</Link><span> | </span>
-          <Link to='/contactUs' >Contact Us</Link><span> | </span>
+          <Link to='/contactUs'>Contact Us</Link><span> | </span>
           <Link to='/Lang' >عربي</Link><span> | </span>
           <span>&#x1f1ea;&#x1f1ec;</span>
         </p>

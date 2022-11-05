@@ -24,7 +24,7 @@ const Navbar = () => {
         {isNavbarOpen&&
         <div className='sidebar'>
           <i className='fa fa-times' onClick={()=>setisNavbarOpen(false)} />
-          <NavLinks />
+          <NavLinks handleClick={()=>setisNavbarOpen(false)}/>
         </div> 
         }
       </div>
