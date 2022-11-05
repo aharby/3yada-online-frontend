@@ -39,7 +39,7 @@ const UserForm = (props) => {
                         component={renderInput}
                         label="Password"
                     />
-                    <Button secondary fluid size='large'>
+                    <Button fluid size='large'>
                         {props.buttonText}
                     </Button>
                 </Segment>
@@ -57,7 +57,7 @@ const renderInput = ({ input, label }) => {
 
         <div className="field">
             <div className="ui fluid left icon input">
-                <input {...input} autoComplete="off" placeholder={label} type={`${input.name === "email" ? "text" : "password"}`} />
+                <input {...input} autoComplete="off" placeholder={label} type={`${input.name === "email" ? "email" : "password"}`} />
                 <i aria-hidden="true" className={`${input.name === "email" ? "user" : "lock"} icon`}></i>
             </div>
         </div>

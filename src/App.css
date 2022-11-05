@@ -333,6 +333,34 @@ ul.nav li.active {
 }
 
 /* authentication */
+.ui.header {
+  color: #595e7a;
+}
+
+.ui.segment {
+  background-color: #E8EFFF;
+}
+
+
+.ui.form input[type=password],.ui.form  input[type=email] {
+  background-color: #E8EFFF;
+}
+
+.ui.form input[type=password]:focus,.ui.form  input[type=email]:focus {
+  background-color: #f4f6fa;
+}
+
+.ui.form input::placeholder {
+  color: #595e7a;
+}
+.ui.button {
+  background-color: #50a060;
+  color: #E8EFFF;
+}
+
+.icon {
+  color: #50a060;
+}
 /* NavBar Styling */
 .ui.menu:first-child {
   margin-top: 0;
