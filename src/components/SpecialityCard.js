@@ -1,7 +1,7 @@
 import React from "react"
 
 import { urlFor } from "../client"
-import { withAnimation } from './withAnimation'
+import { withAnimation } from './HOCs/withAnimation'
 
 const  SpecialityCard = (props) => {
 console.log("specialitycard props")
