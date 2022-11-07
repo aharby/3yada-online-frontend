@@ -56,6 +56,10 @@ p, h1, h2 {
     display: none;
   }
 
+  .mobile-navbar{
+    display: block;
+  }
+
   @-webkit-keyframes rollout {
     0% { -webkit-transform: translateX(-120px); }
     100% { -webkit-transform: translateX(0); }
@@ -65,14 +69,14 @@ p, h1, h2 {
     0% { transform: translateX(-120px); }
     100% { transform: translateX(0); }
   }
-
-  .mobile-navbar{
-    display: block;
+  .fa-bars {
     -webkit-animation:  rollout 0.4s;
     animation: rollout 0.4s;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1em 2em;
   }
-
-
   @-webkit-keyframes rolloutSidebar {
     0% { -webkit-transform: translateX(100px); }
     100% { -webkit-transform: translateX(0); }
