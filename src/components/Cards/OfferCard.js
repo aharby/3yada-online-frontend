@@ -1,6 +1,6 @@
 import React from "react"
-import { urlFor } from "../client"
-import { withAnimation } from "./HOCs/withAnimation"
+import { urlFor } from "../../client"
+import { withAnimation } from "../HOCs/withAnimation"
 
 const OfferCard = (props) => {
     const adr =props.item.location.formatted_address.split(",")

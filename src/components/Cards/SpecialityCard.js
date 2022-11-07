@@ -1,11 +1,10 @@
 import React from "react"
 
-import { urlFor } from "../client"
-import { withAnimation } from './HOCs/withAnimation'
+import { urlFor } from "../../client"
+import { withAnimation } from '../HOCs/withAnimation'
 
 const  SpecialityCard = (props) => {
-console.log("specialitycard props")
-console.log(props)
+
   return (
     
       <div className="card" >

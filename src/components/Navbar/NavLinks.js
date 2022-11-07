@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import Logout from './Logout'
+import Logout from '../Logout'
 const NavLinks = (props) => {
     const { currentUser, isAuthenticated } = useSelector(state => state.auth)
 

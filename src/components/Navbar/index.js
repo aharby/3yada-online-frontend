@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import OutsideClick from "./outsideClick";
+import useOutsideClickAlert from "../../hooks/useOutsideClickAlert";
 
-import logo from '../assets/3yada-online-low-resolution-logo-white-on-transparent-background.png'
+import logo from '../../assets/3yada-online-low-resolution-logo-white-on-transparent-background.png'
 import NavLinks from './NavLinks'
 
 
@@ -10,9 +10,8 @@ const Navbar = () => {
   const [ isNavbarOpen, setisNavbarOpen ] = useState (false);
   
   const sidebarRef = useRef(null);
-  const isOutsideClick = OutsideClick(sidebarRef);
+  const isOutsideClick = useOutsideClickAlert(sidebarRef);
 
-  console.log(isOutsideClick)
   useEffect ( ()=> {
     if(isOutsideClick) setisNavbarOpen(false)
   },[isOutsideClick])

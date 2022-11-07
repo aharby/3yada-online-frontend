@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Header from '../../components/Header'
-import OfferCard from '../../components/OfferCard';
-import SpecialityCard from '../../components/SpecialityCard.js';
+import OfferCard from '../../components/Cards/OfferCard';
+import SpecialityCard from '../../components/Cards/SpecialityCard';
 
 import { client } from '../../client';
 

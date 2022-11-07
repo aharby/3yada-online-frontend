@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function OutsideClick(ref) {
+export default function useOutsideClickAlert(ref) {
   const [isClicked, setIsClicked] = useState();
   useEffect(() => {
     function handleClickOutside(event) {
