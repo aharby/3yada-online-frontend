@@ -14,7 +14,7 @@ const initialState = {
     currentUser: null
 }
 // reducer to handle auth Actions
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         case REGISTER_SUCCESS:
@@ -48,3 +48,4 @@ export default (state = initialState, action) => {
     }
 }
 
+export default reducer;
