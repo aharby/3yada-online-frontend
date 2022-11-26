@@ -58,11 +58,11 @@ const Home = () => {
                     <div className='Home-cards' ref={specialitiesRef}>
                         {specialityCards}
                     </div>
-                <div className='scrollbtn' onClick={() => scroll(specialitiesRef,800)}><i className="fa fa-light fa-forward"></i></div>
+                <div className='scrollbtn' onClick={() => scroll(specialitiesRef,800)}><i className="fa fa-forward"></i></div>
             </div>
             <h2 className='Home-h2'>Our Doctors</h2>
             <div className='Home--container' >
-                <div className='scrollbtn' onClick={() => scroll(cardsRef,-800)}><i className="fa fa-thin fa-backward"></i></div>
+                <div className='scrollbtn' onClick={() => scroll(cardsRef,-800)}><i className="fa fa-backward"></i></div>
                     <div className='Home-cards' ref={cardsRef}>
                         {offerCards}
                     </div>

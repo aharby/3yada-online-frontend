@@ -43,11 +43,12 @@ p, h1, h2 {
   display: none;
 }
 
+.fa  {
+  color:#E8EFFF
+}
 
 @media (max-width:600px) {
-  .fa  {
-    color:#E8EFFF
-  }
+  
   
   .navbar {
     padding: 0.7em 2em;
@@ -285,7 +286,7 @@ ul.nav li.active {
   
 }
 .scrollbtn {
-  background-color: rgba(107, 167, 255, 0.2);
+  background-color:rgb(107, 167, 255, 0.3);
   padding: 1em;
 }
 
