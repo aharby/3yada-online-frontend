@@ -41,6 +41,8 @@ const Home = () => {
 });
 
   const offerCards = offers.map(item => {
+    console.log(item.name);
+    console.log(item.slug.current);
     return (
         <OfferCard animation="slide-up"
             key={item._id}

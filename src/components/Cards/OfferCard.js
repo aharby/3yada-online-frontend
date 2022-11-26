@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "react-router-dom"
+
 import { urlFor } from "../../client"
 import { withAnimation } from "../HOCs/withAnimation"
 
@@ -8,7 +10,10 @@ const OfferCard = (props) => {
     return (
       <div className="card">
           <h3 className="card--h3">{props.item.name}</h3>
-          <img height="160px" src={urlFor(props.item.coverImg).url()} alt='cover' className="card--image" />
+          {props.item.coverImg &&
+          <Link to={`doctors/${props.item.slug.current}`}>
+              <img height="160px" src={urlFor(props.item.coverImg).url()} alt='cover' className="card--image" />
+          </Link>}
           <div className="card--stats">
           <span className="fa fa-star card--star"></span>
               <span>{props.item.rating}</span>
