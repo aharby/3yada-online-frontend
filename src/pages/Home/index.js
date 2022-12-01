@@ -56,7 +56,7 @@ const Home = () => {
             <Header />
             <h2 className='Home-h2'>Our Specialities</h2>
             <div className='Home--container' >
-                <div className='scrollbtn' onClick={() => scroll(specialitiesRef, -800)}><i class="fa fa-light fa-backward"></i></div>
+                <div className='scrollbtn' onClick={() => scroll(specialitiesRef, -800)}><i className="fa fa-light fa-backward"></i></div>
                     <div className='Home-cards' ref={specialitiesRef}>
                         {specialityCards}
                     </div>

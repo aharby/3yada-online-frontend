@@ -25,7 +25,7 @@ const Header = () => {
   }, []);
   return (
     <div className='Home-header'>
-          <h1 className='header-content-h1'><span>Find the Best <TextTransition springConfig={presets.wobbly} inline="true">
+          <h1 className='header-content-h1'><span>Find the Best <TextTransition springConfig={presets.wobbly} inline={true}>
         {TEXTS[index % TEXTS.length]}
       </TextTransition> <br />Doctors on 3yada Online</span></h1>
           <HeaderTabs />
