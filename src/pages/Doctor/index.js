@@ -17,10 +17,13 @@ const Doctor = () => {
     const {doctorSlug} = useParams();
     const doctor = doctors.find(doctor => doctor.slug.current=== doctorSlug)
 
+    console.log(doctor)
     return (
         <div className="doctor-page">
             <h1>Welcome to Doctor Page</h1>
-            <h3 className="card--h3">{doctor.name}</h3>
+            {!doctor? <h3 className="card--h3">Loading...</h3>:
+              <h3 className="card--h3">{doctor.name}</h3>
+            }
         </div>
     )
 }

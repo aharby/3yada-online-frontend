@@ -19,14 +19,12 @@ const Home = () => {
     const offersQuery = '*[_type == "doctor"]';
 
     client.fetch(offersQuery).then((data) => {
-      console.log(data)
       setOffers(data);
     });
 
     const specialitiesQuery = '*[_type == "category"]';
 
     client.fetch(specialitiesQuery).then((data) => {
-        console.log(data);
         setSpecialities(data);
     })
   }, []);
@@ -39,10 +37,9 @@ const Home = () => {
         />
     )
 });
-
+console.log(1,offers)
   const offerCards = offers.map(item => {
-    console.log(item.name);
-    console.log(item.slug.current);
+    
     return (
         <OfferCard animation="slide-up"
             key={item._id}
@@ -50,7 +47,7 @@ const Home = () => {
         />
     )
 });
-
+    console.log(offers)
     return (
         <div className='Home'>
             <Header />
