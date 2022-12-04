@@ -11,7 +11,7 @@ const OfferCard = (props) => {
       <div className="card">
           <h3 className="card--h3">{props.item.name}</h3>
           {props.item.coverImg &&
-          <Link to={`doctors/${props.item.slug.current}`}>
+          <Link to={`/doctors/${props.item.slug.current}`}>
               <img height="160px" src={urlFor(props.item.coverImg).url()} alt='cover' className="card--image" />
           </Link>}
           <div className="card--stats">

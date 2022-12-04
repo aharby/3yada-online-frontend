@@ -37,7 +37,6 @@ const Home = () => {
         />
     )
 });
-console.log(1,offers)
   const offerCards = offers.map(item => {
     
     return (
@@ -47,7 +46,7 @@ console.log(1,offers)
         />
     )
 });
-    console.log(offers)
+    console.log(offers, specialities)
     return (
         <div className='Home'>
             <Header />

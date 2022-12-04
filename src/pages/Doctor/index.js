@@ -17,7 +17,6 @@ const Doctor = () => {
     const {doctorSlug} = useParams();
     const doctor = doctors.find(doctor => doctor.slug.current=== doctorSlug)
 
-    console.log(doctor)
     return (
         <div className="doctor-page">
             <h1>Welcome to Doctor Page</h1>

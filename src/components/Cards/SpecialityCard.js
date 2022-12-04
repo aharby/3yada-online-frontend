@@ -9,7 +9,10 @@ const  SpecialityCard = (props) => {
     
       <div className="card" >
           <h3 className="card--h3">{props.item.name}</h3>
-         {props.item.img &&<img height="160px" src={urlFor(props.item.img).url()} alt='cover' className="card--image" />}
+          <Link to={`/specialities/${props.item.slug.current}`}>
+            {props.item.img &&
+              <img height="160px" src={urlFor(props.item.img).url()} alt='cover' className="card--image" />}
+          </Link>
       </div>
   )
 }

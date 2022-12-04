@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./actions/authActions";
 import Home from "./pages/Home";
 import Doctor from './pages/Doctor'
+import Specialitity from './pages/Speciality'
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NoMatch from "./pages/NoMatch";
@@ -27,6 +28,7 @@ function App() {
         
           <Routes >
               <Route path="/" element={<Home />} />
+              <Route path="/specialities/:specialitySlug" element={<Specialitity />} />
               <Route path="/doctors/:doctorSlug" element={<Doctor />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
