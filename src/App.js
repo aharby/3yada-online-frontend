@@ -1,5 +1,5 @@
 import 'semantic-ui-css/semantic.min.css'
-import './App.css';
+import './styles';
 import React, { useEffect } from 'react'
 import { Routes, Route} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
