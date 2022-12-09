@@ -1,33 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import Header from '../../components/Header'
 import OfferCard from '../../components/Cards/OfferCard';
 import SpecialityCard from '../../components/Cards/SpecialityCard';
 
-import { client } from '../../client';
 
-const Home = () => {
-    const [offers, setOffers] = useState([])
-    const [specialities, setSpecialities] = useState([])
+const Home = (props) => {
+    const doctors = props.data.doctors;
+    const specialities = props.data.specialities;
+
     const specialitiesRef = useRef(null);
     const cardsRef = useRef(null);
 
     const scroll = (ref, scrollOffset) => {
         ref.current.scrollLeft += scrollOffset;
       };
-
-  useEffect(() => {
-    const offersQuery = '*[_type == "doctor"]';
-
-    client.fetch(offersQuery).then((data) => {
-      setOffers(data);
-    });
-
-    const specialitiesQuery = '*[_type == "category"]';
-
-    client.fetch(specialitiesQuery).then((data) => {
-        setSpecialities(data);
-    })
-  }, []);
 
   const specialityCards = specialities.map(item => {
     return (
@@ -37,7 +23,8 @@ const Home = () => {
         />
     )
 });
-  const offerCards = offers.map(item => {
+
+  const offerCards = doctors.map(item => {
     
     return (
         <OfferCard animation="slide-up"
@@ -46,7 +33,7 @@ const Home = () => {
         />
     )
 });
-    console.log(offers, specialities)
+    console.log(doctors, specialities)
     return (
         <div className='Home'>
             <Header />

@@ -1,6 +1,6 @@
 import 'semantic-ui-css/semantic.min.css'
 import './styles';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Routes, Route} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./actions/authActions";
@@ -12,7 +12,28 @@ import Register from "./pages/Register";
 import NoMatch from "./pages/NoMatch";
 import Navbar from './components/Navbar'
 
+import { client } from './client';
+
+
 function App() {
+    const [doctors, setDoctors] = useState([])
+    const [specialities, setSpecialities] = useState([])
+
+    useEffect(() => {
+        const doctorsQuery = '*[_type == "doctor"]';
+    
+        client.fetch(doctorsQuery).then((data) => {
+          setDoctors(data);
+        });
+    
+        const specialitiesQuery = '*[_type == "category"]';
+    
+        client.fetch(specialitiesQuery).then((data) => {
+            setSpecialities(data);
+        })
+      }, []);
+
+
     const { isAuthenticated } = useSelector(state => state.auth)
 
     const dispatch = useDispatch();
@@ -24,16 +45,20 @@ function App() {
     
   return (
       <div className="App">
-         <Navbar />
-        
-          <Routes >
-              <Route path="/" element={<Home />} />
-              <Route path="/specialities/:specialitySlug" element={<Specialitity />} />
-              <Route path="/doctors/:doctorSlug" element={<Doctor />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path='*' element={<NoMatch />} />
-          </Routes>
+        <Navbar />
+        <Routes >
+        {(doctors&&specialities)?
+            <>
+                <Route path="/" element={<Home data={{doctors,specialities}}/>} />
+                <Route path="/specialities/:specialitySlug" element={<Specialitity data={{doctors,specialities}}/>} />
+                <Route path="/doctors/:doctorSlug" element={<Doctor doctors={doctors}/>} />
+            </>:
+            <h3>Loading...</h3>
+        }
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path='*' element={<NoMatch />} />
+        </Routes>
       </div>
   );
 }

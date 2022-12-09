@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {useParams} from "react-router-dom"
 
-import { client } from "../../client";
+import OfferCard from "../../components/Cards/OfferCard";
 
-const Speciality = () => {
-    const [specialities, setSpecialities] = useState([]);
 
-  useEffect(() => {
-    const specialitiesQuery = '*[_type == "category"]';
-
-    client.fetch(specialitiesQuery).then((data) => {
-        setSpecialities(data);
-    });
-  },[]);
-
+const Speciality = (props) => {
     const {specialitySlug} = useParams();
-    const speciality = specialities.find(speciality => speciality.slug.current=== specialitySlug)
+
+    const speciality = props.data.specialities.find(speciality => speciality.slug.current=== specialitySlug)
+    const doctors = props.data.doctors.filter((doctor) =>{
+      return doctor.categories.find(category => category._ref=== speciality._id)})
+
+    const offerCards = doctors.map(item => {
+      return (
+          <OfferCard animation="slide-up"
+              key={item._id}
+              item={item}
+          />
+      )
+    });
+    
 
     return (
         <div className="speciality-page">
-            <h1>Welcome to Speciality Page</h1>
-            {!speciality? <h3 className="card--h3">Loading...</h3>:
-              <h3 className="card--h3">{speciality.name}</h3>
+            {!speciality? <h3>Loading...</h3>:
+              <h1>Book a <span>{speciality.name}</span>doctor</h1>
+
             }
         </div>
     )
