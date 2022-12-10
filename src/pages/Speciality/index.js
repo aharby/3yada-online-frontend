@@ -24,8 +24,10 @@ const Speciality = (props) => {
     return (
         <div className="speciality-page">
             {!speciality? <h3>Loading...</h3>:
-              <h1>Book a <span>{speciality.name}</span>doctor</h1>
-
+              <>
+                <h1>Book a <span>{speciality.name}</span>doctor</h1>
+                {offerCards}
+              </>
             }
         </div>
     )
