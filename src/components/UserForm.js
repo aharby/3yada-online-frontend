@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Form, Message, Segment, Label } from 'semantic-ui-react';
 import { Field, reduxForm } from "redux-form";
-import { clearErrors } from "../actions/authActions";
+import { clearErrors } from "../redux/actions/authActions";
 
 const UserForm = (props) => {
 

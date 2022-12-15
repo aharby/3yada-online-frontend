@@ -3,7 +3,7 @@ import './styles';
 import React, { useEffect, useState } from 'react'
 import { Routes, Route} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { loadUser } from "./actions/authActions";
+import { loadUser } from "./redux/actions/authActions";
 import Home from "./pages/Home";
 import Doctor from './pages/Doctor'
 import Specialitity from './pages/Speciality'
