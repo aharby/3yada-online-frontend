@@ -4,7 +4,7 @@ import { Header } from 'semantic-ui-react';
 import UserForm from "../../components/UserForm";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../redux/actions/authActions";
+import { registerUser } from "../../redux/auth";
 
 const Register = () => {
 

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Header } from "semantic-ui-react";
 import { useSelector, useDispatch } from "react-redux";
 import UserForm from "../../components/UserForm";
-import { loginUser } from "../../redux/actions/authActions";
+import { loginUser } from "../../redux/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 
