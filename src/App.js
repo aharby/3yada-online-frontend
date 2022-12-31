@@ -40,7 +40,7 @@ function App() {
               <>
                   <Route path="/" element={<Home data={{doctors,specialities}}/>} />
                   <Route path="/specialities/:specialitySlug" element={<Specialitity data={{doctors,specialities}}/>} />
-                  <Route path="/doctors/:doctorSlug" element={<Doctor doctors={doctors}/>} />
+                  <Route path="/doctors/:doctorSlug" element={<Doctor data={{doctors}}/>} />
               </>:
               <h3>Loading...</h3>
           }

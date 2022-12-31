@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {useParams} from "react-router-dom"
 
-import { client } from "../../client";
 
-const Doctor = () => {
-    const [doctors, setDoctors] = useState([]);
-
-  useEffect(() => {
-    const doctorsQuery = '*[_type == "doctor"]';
-
-    client.fetch(doctorsQuery).then((data) => {
-        setDoctors(data);
-    });
-  },[]);
-
+const Doctor = (props) => {
     const {doctorSlug} = useParams();
-    const doctor = doctors.find(doctor => doctor.slug.current=== doctorSlug)
+
+    const doctor = props.data.doctors.find(doctor => doctor.slug.current=== doctorSlug)
 
     return (
         <div className="doctor-page">
