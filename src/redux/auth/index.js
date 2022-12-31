@@ -1,27 +1,30 @@
 import API from "../../utils/API";
-import { getErrors } from "../error-handling";
+import { setError } from "../error-handling";
 
 // Auth actions types
 
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-const LOGIN_FAILURE = "LOGIN_FAILURE";
-const REGISTER_FAILURE = "REGISTER_FAILURE";
 const LOGOUT = "LOGOUT";
 const LOAD_USER_SUCCESS = "LOAD_USER_SUCCESS";
-const LOAD_USER_FAILURE = "LOAD_USER_FAILURE";
 const AUTH_ERROR = "AUTH_ERROR";
+const LOADING = "LOADING";
 
 //initial state 
 const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: false,
-    currentUser: null
+    currentUser: null,
+    loading: false
 }
 
 
 // Auth action creators
 export const registerUser = (data) => async dispatch => {
+    dispatch({
+        type:LOADING
+    })
+
     try {
         // send request to server side to register user
         const response = await API.register(data);
@@ -31,14 +34,21 @@ export const registerUser = (data) => async dispatch => {
             payload: response.data
         });
     } catch (err) {
-        dispatch(getErrors(err.response.data))
+        console.log("regester failed\n",err.response.data);
+
+        dispatch(setError(err.response.data));
+
         dispatch({
-            type: REGISTER_FAILURE
+            type: AUTH_ERROR
         });
     };
 };
 
 export const loginUser = (data) => async dispatch => {
+    dispatch({
+        type:LOADING
+    });
+
     try {
         const response = await API.login(data);
         dispatch({
@@ -47,30 +57,33 @@ export const loginUser = (data) => async dispatch => {
         });
 
     } catch (err) {
-        // dispatch get error Action
-        dispatch(getErrors(err.response.data))
-        // dispatch login fail
+        console.log("login failed\n", err.response.data);
+
+        dispatch(setError(err.response.data));
+        
         dispatch({
-            type: LOGIN_FAILURE
+            type: AUTH_ERROR
         });
     }
 }
 
 export const loadUser = () => async (dispatch, getState) => {
-    
-    dispatch({type: LOAD_USER_FAILURE})
-    try {
-        const headers = getTokenInfo(getState);
-        const user = await API.loadUser(headers);
-        dispatch({
-            type: LOAD_USER_SUCCESS,
-            payload: user.data
-        })
+    dispatch({
+        type:LOADING
+    });
 
+    try {
+    const headers = getTokenInfo(getState);
+    const user = await API.loadUser(headers);
+    dispatch({
+        type: LOAD_USER_SUCCESS,
+        payload: user.data
+    })
     } catch (err) {
+        console.log("load user failed\n", err.response.data);
         dispatch({
             type: AUTH_ERROR
-        })
+        });
     }
 }
 
@@ -101,6 +114,11 @@ export const LogoutUser = () => {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
+        case LOADING:
+            return{
+                ...state,
+                loading:true
+            }
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
             localStorage.setItem("token", action.payload.token)
@@ -108,26 +126,26 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 token: action.payload.token,
                 currentUser: { email: action.payload.email },
-                isAuthenticated: true
+                isAuthenticated: true,
+                loading: false
             };
-        case REGISTER_FAILURE:
-        case LOGIN_FAILURE:
-        case LOAD_USER_FAILURE:
-        case AUTH_ERROR:
-        case LOGOUT:
-            localStorage.removeItem("token")
-            return {
-                ...state,
-                token: null,
-                isAuthenticated: false,
-                currentUser: null
-            }
         case LOAD_USER_SUCCESS:
             return {
                 ...state,
                 isAuthenticated: true,
-                currentUser: action.payload
+                currentUser: action.payload,
+                loading: false
             }
+        case AUTH_ERROR:
+        case LOGOUT:
+            localStorage.removeItem("token");
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                currentUser: null,
+                loading: false
+            }        
         default:
             return state
     }

@@ -38,7 +38,6 @@ export const fetchDoctors = () => dispatch => {
 const reducer = (state= initialstate, action) => {
     switch(action.type){
         case DOCTORS_FETHCING:
-            console.log("fetching doctors...");
             return {
                 ...state,
                 loading: true

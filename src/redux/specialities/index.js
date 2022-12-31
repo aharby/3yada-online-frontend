@@ -38,7 +38,6 @@ export const fetchSpeiclities = () => dispatch => {
 const reducer = (state= initialstate, action) => {
     switch(action.type){
         case SPECIALITIES_FETHCING:
-            console.log("fetching specialities")
             return {
                 ...state,
                 loading: true

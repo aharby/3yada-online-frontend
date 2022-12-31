@@ -154,13 +154,14 @@ span{
 
 
 
-.Home {
-
+.main-container {
+  padding: 2em 6em;
 }
 
 .Home-header {
   height: 685px;
   padding: 2em 6em;
+  margin: -2em -6em 0;
   background-size: cover;
   background: url('../assets/homeCover.jpeg'); 
   background-size:cover;
@@ -266,12 +267,10 @@ ul.nav li.active {
   color: #6BA7FF;
   font-size: 1.85rem;
   font-weight:bold;
-  padding: 0 6rem;
 }
 
 .Home--container {
   display: flex;
-  padding: 0 6em;
   align-items: center;
 }
 

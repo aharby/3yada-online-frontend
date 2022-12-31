@@ -31,23 +31,24 @@ function App() {
       if(isAuthenticated) dispatch(loadUser());
     }, [dispatch, isAuthenticated]);
     
-    console.log("sepciality:", specialities, "\ndoctors:",doctors)
   return (
       <div className="App">
         <Navbar />
-        <Routes >
-        {(doctors&&specialities)?
-            <>
-                <Route path="/" element={<Home data={{doctors,specialities}}/>} />
-                <Route path="/specialities/:specialitySlug" element={<Specialitity data={{doctors,specialities}}/>} />
-                <Route path="/doctors/:doctorSlug" element={<Doctor doctors={doctors}/>} />
-            </>:
-            <h3>Loading...</h3>
-        }
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path='*' element={<NoMatch />} />
-        </Routes>
+        <div className='main-container'>
+          <Routes >
+          {(doctors&&specialities)?
+              <>
+                  <Route path="/" element={<Home data={{doctors,specialities}}/>} />
+                  <Route path="/specialities/:specialitySlug" element={<Specialitity data={{doctors,specialities}}/>} />
+                  <Route path="/doctors/:doctorSlug" element={<Doctor doctors={doctors}/>} />
+              </>:
+              <h3>Loading...</h3>
+          }
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path='*' element={<NoMatch />} />
+          </Routes>
+        </div>
       </div>
   );
 }

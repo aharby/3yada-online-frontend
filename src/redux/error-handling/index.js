@@ -1,11 +1,11 @@
 // actions types
-const GET_ERRORS = "GET_ERRORS";
+const SET_ERROR_MSG = "SET_ERROR_MSG";
 const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 // actions creators
-export const getErrors = (errorData) => {
+export const setError = (errorData) => {
     return {
-        type: GET_ERRORS,
+        type: SET_ERROR_MSG,
         payload: errorData
     }
 }
@@ -25,7 +25,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case GET_ERRORS:
+        case SET_ERROR_MSG:
             return {
                 ...state,
                 message: action.payload.message

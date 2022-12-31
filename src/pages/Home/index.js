@@ -33,7 +33,6 @@ const Home = (props) => {
         />
     )
 });
-    console.log(doctors, specialities)
     return (
         <div className='Home'>
             <Header />
