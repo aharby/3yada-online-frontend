@@ -12,10 +12,15 @@ const LOAD_USER_SUCCESS = "LOAD_USER_SUCCESS";
 const LOAD_USER_FAILURE = "LOAD_USER_FAILURE";
 const AUTH_ERROR = "AUTH_ERROR";
 
+//initial state 
+const initialState = {
+    token: localStorage.getItem("token"),
+    isAuthenticated: false,
+    currentUser: null
+}
 
 
 // Auth action creators
-
 export const registerUser = (data) => async dispatch => {
     try {
         // send request to server side to register user
@@ -91,12 +96,6 @@ export const LogoutUser = () => {
     }
 }
 
-//initial state 
-const initialState = {
-    token: localStorage.getItem("token"),
-    isAuthenticated: false,
-    currentUser: null
-}
 
 // reducer to handle auth Actions
 const reducer = (state = initialState, action) => {

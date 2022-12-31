@@ -1,6 +1,6 @@
 import 'semantic-ui-css/semantic.min.css'
 import './styles';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./redux/auth";
@@ -12,37 +12,26 @@ import Register from "./pages/Register";
 import NoMatch from "./pages/NoMatch";
 import Navbar from './components/Navbar'
 
-import { client } from './client';
-
+import { fetchDoctors } from './redux/doctors';
+import { fetchSpeiclities } from './redux/specialities'
 
 function App() {
-    const [doctors, setDoctors] = useState([])
-    const [specialities, setSpecialities] = useState([])
-
-    useEffect(() => {
-        const doctorsQuery = '*[_type == "doctor"]';
-    
-        client.fetch(doctorsQuery).then((data) => {
-          setDoctors(data);
-        });
-    
-        const specialitiesQuery = '*[_type == "category"]';
-    
-        client.fetch(specialitiesQuery).then((data) => {
-            setSpecialities(data);
-        })
-      }, []);
-
-
-    const { isAuthenticated } = useSelector(state => state.auth)
+    const { isAuthenticated } = useSelector(state => state.auth);
+    const {items:doctors} = useSelector(state=> state.doctors);
+    const {items:specialities} = useSelector(state => state.specialities);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(isAuthenticated)
-            dispatch(loadUser());
-    }, []);
+        dispatch(fetchSpeiclities())
+        dispatch(fetchDoctors());
+    },[dispatch]);
     
+    useEffect(()=> {
+      if(isAuthenticated) dispatch(loadUser());
+    }, [dispatch, isAuthenticated]);
+    
+    console.log("sepciality:", specialities, "\ndoctors:",doctors)
   return (
       <div className="App">
         <Navbar />

@@ -2,14 +2,17 @@ import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import authReducer from "./auth";
 import errorReducer from "./error-handling";
-
+import doctorsReducer from "./doctors";
+import specialitiesReducer from "./specialities";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
 const reducers = combineReducers({
     auth: authReducer,
     errors: errorReducer,
-    form: formReducer
+    form: formReducer,
+    doctors: doctorsReducer,
+    specialities: specialitiesReducer
 })
 
 // redux configuration of the store with the reducers, thunk (middleware) and chrome web tools.
